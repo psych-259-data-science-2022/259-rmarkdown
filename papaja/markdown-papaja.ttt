@@ -1,0 +1,51 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-1}Rolling Stone list by decade}
+
+\begin{tabular}{lllll}
+\toprule
+Decade & \multicolumn{1}{c}{n} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{Highest} & \multicolumn{1}{c}{Lowest}\\
+\midrule
+1970 & 143 & 258.6 & 6 & 498\\
+1960 & 108 & 202.1 & 1 & 499\\
+1980 & 80 & 262.4 & 2 & 494\\
+1990 & 70 & 284.2 & 5 & 489\\
+2000 & 36 & 227.7 & 8 & 500\\
+2010 & 32 & 302.8 & 20 & 497\\
+1950 & 24 & 229.5 & 33 & 492\\
+2020 & 3 & 371.0 & 329 & 438\\
+1930 & 2 & 251.0 & 21 & 481\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:regtable}Results of a linear regression predicting rank from release year.}
+
+\begin{tabular}{lllll}
+\toprule
+Predictor & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{95\% CI} & \multicolumn{1}{c}{$t(497)$} & \multicolumn{1}{c}{$p$}\\
+\midrule
+Intercept & -2,617.87 & $[-4,189.84$, $-1,045.89]$ & -3.27 & .001\\
+Year & 1.45 & $[0.65$, $2.24]$ & 3.58 & < .001\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}

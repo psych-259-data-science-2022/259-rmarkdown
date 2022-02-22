@@ -1,0 +1,133 @@
+---
+title             : "The title"
+shorttitle        : "Title"
+
+author: 
+  - name          : "First Author"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+      - Conceptualization
+      - Writing - Original Draft Preparation
+      - Writing - Review & Editing
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+    role:
+      - Writing - Review & Editing
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+library("tidyverse")
+r_refs("r-references.bib")
+load("data/rs_data.RData")
+```
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+```{r decades, include = FALSE}
+rs_new <- rs_new %>% mutate(Decade = floor(Year/10)*10)
+decade_summary <- rs_new %>% add_count(Decade) %>% 
+  mutate(Decade = as.character(Decade)) %>% 
+  group_by(Decade) %>% 
+  summarize(n = mean(n), Mean = mean(Rank), Highest = min(Rank), Lowest = max(Rank)) %>% 
+  arrange(-n) %>% 
+  filter(n > 1)
+```
+
+We examined the *Rolling Stone* list, which contained `r nrow(rs_new)` entries. As Table 1 shows, the decade with the most songs was `r decade_summary %>% slice_max(n) %>% pull(Decade)`, with `r decade_summary %>% slice_max(n) %>% pull(n)` songs. 
+
+```{r}
+apa_table(decade_summary, caption = "Rolling Stone list by decade", digits = c(0, 0, 1, 0, 0))
+```
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+# Results
+
+```{r regression, include = F}
+res <- lm(Rank ~ Year, data = filter(rs_new, Year > 1930))
+res <- apa_print(res)
+```
+
+A linear regression was carried out to determine whether ranking varied by year. The overall model fit was `r res$full_result$modelfit`. As Table 2 and Figure 1 show, rankings were better ranked (lower values) for more recent years, `r res$estimate$Year`. 
+
+```{r regtable}
+apa_table(res$table, caption = "Results of a linear regression predicting rank from release year.")
+```
+
+```{r scatter, message=FALSE, warning=FALSE, fig.cap="Song rank by release year"}
+ggplot(data = filter(rs_new, Year > 1930), aes(x = Year, y = Rank)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = F, color = "gray") + 
+  theme_apa()
+```
+
+# Discussion
+
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup

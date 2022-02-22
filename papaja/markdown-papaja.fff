@@ -1,0 +1,7 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{markdown-papaja_files/figure-latex/scatter-1.pdf}
+\caption{\label{fig:scatter}Song rank by release year}
+\end{figure*}
