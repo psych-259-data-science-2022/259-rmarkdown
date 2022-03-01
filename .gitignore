@@ -1,12 +1,2 @@
 
-.Rproj.user/41B76ECA/sources/per/t/1A65F044-contents
-.Rproj.user/41B76ECA/sources/per/t/842C1E1F
-.Rproj.user/41B76ECA/sources/per/t/842C1E1F-contents
-.Rproj.user/41B76ECA/sources/prop/74DF43D9
-.Rproj.user/41B76ECA/sources/prop/9926A008
-.Rproj.user/41B76ECA/sources/prop/INDEX
-.Rproj.user/shared/notebooks/9B849B5E-markdown-basics/1/41B76ECA459AAEFF/chunks.json
-.Rproj.user/shared/notebooks/9B849B5E-markdown-basics/1/41B76ECA6CCF9C4B/chunks.json
-.Rproj.user/shared/notebooks/9B849B5E-markdown-basics/1/s/chunks.json
-.Rproj.user/shared/notebooks/patch-chunk-names
-.Rproj.user/shared/notebooks/paths
+*.Rproj.user
