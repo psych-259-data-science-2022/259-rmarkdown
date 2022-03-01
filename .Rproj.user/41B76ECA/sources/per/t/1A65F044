@@ -1,0 +1,27 @@
+{
+    "id": "1A65F044",
+    "path": "~/Documents/GitHub-259-2022/259-rmarkdown/basic/markdown-basics.Rmd",
+    "project_path": "basic/markdown-basics.Rmd",
+    "type": "r_markdown",
+    "hash": "3303298196",
+    "contents": "",
+    "dirty": false,
+    "created": 1646073979553.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "12,3",
+        "scrollLine": "0",
+        "last_setup_crc32": "6CCF9C4Bf76e8f4f"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1646088387,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1646088387239,
+    "read_only": false,
+    "read_only_alternatives": []
+}
