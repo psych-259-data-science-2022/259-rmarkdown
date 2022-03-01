@@ -2,3 +2,5 @@
 
 # 259-rmarkdown
 Examples of how to create reproducible reports using RMarkdown and papaja.
+
+To use papaja, it must be installed from GitHub. Follow the instructions here (https://github.com/crsh/papaja#installation) to install TinyTex and the papaja package before trying to knit the document.
